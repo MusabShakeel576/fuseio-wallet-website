@@ -2,6 +2,15 @@
 
 import { MoveDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import YourPublicAddressDialog from "./your-public-address-dialog"
+
+export function ReceiveButton() {
+  return (
+    <Button className="w-full md:w-auto">
+      <MoveDown className="mr-2 h-3 w-3" /> Receive
+    </Button>
+  )
+}
 
 export default function YourBalance() {
   return (
@@ -15,9 +24,11 @@ export default function YourBalance() {
           <span>+0%</span>
         </div>
       </div>
-      <Button className="w-full md:w-auto">
+      <YourPublicAddressDialog>
+        <Button className="w-full md:w-auto">
           <MoveDown className="mr-2 h-3 w-3" /> Receive
         </Button>
+      </YourPublicAddressDialog>
     </div>
   )
 }

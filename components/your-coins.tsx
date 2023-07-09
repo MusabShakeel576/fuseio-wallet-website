@@ -26,7 +26,7 @@ export default function YourCoins() {
                 <AvatarImage src={coin.image} />
                 <AvatarFallback>{coin.name.slice(0, 1)}</AvatarFallback>
               </Avatar>
-              <div className="font-bold">{coin.name}</div>
+              <div className="font-semibold">{coin.name}</div>
             </div>
             <div className="font-bold">${coin.price}</div>
           </div>

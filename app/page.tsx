@@ -1,4 +1,5 @@
 import AddWalletAddress from '@/components/add-wallet-address'
+import Details from '@/components/details'
 import Navbar from '@/components/navbar'
 import Wallet from '@/components/wallet'
 
@@ -11,6 +12,7 @@ export default function Home() {
       </div> */}
       <div className='container w-auto mt-32'>
         <Wallet />
+        {/* <Details /> */}
       </div>
     </main>
   )
