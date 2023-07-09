@@ -10,7 +10,7 @@ export default function Home() {
       {/* <div className='container w-auto m-auto'>
         <AddWalletAddress />
       </div> */}
-      <div className='container w-auto mt-32'>
+      <div className='container w-auto mt-32 mb-20'>
         <Wallet />
         {/* <Details /> */}
       </div>
