@@ -20,6 +20,7 @@ const ReceiveButton = React.forwardRef<
     <MoveDown className="mr-2 h-3 w-3" /> Receive
   </Button>
 ));
+ReceiveButton.displayName = "ReceiveButton"
 
 export default function YourBalance() {
   const matches = useMediaQuery('(min-width: 640px)')
