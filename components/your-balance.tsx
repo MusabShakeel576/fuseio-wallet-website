@@ -10,6 +10,7 @@ import YourPublicAddressDialog from "./your-public-address-dialog"
 import YourPublicAddressSheet from "./your-public-address-sheet"
 import { useWalletStore } from "@/lib/stores"
 import { formatEther } from "ethers"
+import { Skeleton } from "@/components/ui/skeleton"
 
 const ReceiveButton = React.forwardRef<
   React.ElementRef<typeof Primitive.Trigger>,
@@ -45,12 +46,16 @@ export default function YourBalance() {
     <div className="flex flex-col items-start md:items-center justify-between gap-2 md:gap-0 rounded-lg bg-card text-card-foreground border shadow-sm w-[20rem] md:w-[40rem] p-8 md:flex-row">
       <div className="flex flex-col space-y-4">
         <div className="font-extrabold">Your Balance</div>
-        <div className="flex flex-row items-center">
-          <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-            ${new Intl.NumberFormat().format(balance)}
-          </h3>
-          <span>+0%</span>
-        </div>
+        {
+          balance ?
+            <div className="flex flex-row items-center">
+              <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+                ${new Intl.NumberFormat().format(balance)}
+              </h3>
+              <span>+0%</span>
+            </div> :
+            <Skeleton className="w-[120px] h-[30px] rounded-full" />
+        }
       </div>
       {matches ?
         <YourPublicAddressDialog>

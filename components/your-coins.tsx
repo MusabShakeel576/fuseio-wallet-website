@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { cn } from "@/lib/utils"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { cn, intlBalance } from "@/lib/utils"
 import { useWalletStore } from "@/lib/stores"
-import { formatUnits } from "ethers"
 import { Token } from "@/lib/types"
 
 export default function YourCoins() {
@@ -15,14 +14,6 @@ export default function YourCoins() {
   const tokens = useWalletStore((state) => state.tokens)
   const addToken = useWalletStore((state) => state.addToken)
   const addTokens = useWalletStore((state) => state.addTokens)
-  
-  function intlBalance(balance: number, decimals: number) {
-    const bigInt = BigInt(balance)
-    const eth = formatUnits(bigInt, decimals)
-    const float = parseFloat(eth).toFixed(3)
-    const intl = new Intl.NumberFormat().format(Number(float))
-    return intl
-  }
 
   function handleComponentTransition(token: Token) {
     addToken(token)
@@ -46,12 +37,12 @@ export default function YourCoins() {
           <div key={index} className="flex flex-row items-center justify-between px-4 py-2 rounded-lg odd:bg-secondary even:bg-card cursor-pointer" onClick={() => handleComponentTransition(token)}>
             <div className="flex flex-row items-center gap-2">
               <Avatar>
-                <AvatarImage src={token.name} />
+                {/* <AvatarImage src={token.name} /> */}
                 <AvatarFallback>{token.symbol.slice(0, 1)}</AvatarFallback>
               </Avatar>
               <div className="font-semibold">{token.name}</div>
             </div>
-            <div className="font-bold">${intlBalance(token.balance, Number(token.decimals))}</div>
+            <div className="font-bold truncate">${intlBalance(token.balance, Number(token.decimals))}</div>
           </div>
         )}
       </div>
