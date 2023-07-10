@@ -34,7 +34,7 @@ export default function Details() {
     return () => clearInterval(id);
   }, [token])
   return (
-    <div className="flex flex-col w-auto gap-4">
+    <div className="flex flex-col gap-4">
       <div className="flex flex-row items-center space-x-4">
         <ArrowLeft className="h-8 w-8 cursor-pointer" onClick={() => resetToken()} />
         <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">

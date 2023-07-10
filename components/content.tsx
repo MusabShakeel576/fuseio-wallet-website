@@ -5,7 +5,7 @@ import { useWalletStore, useQrStore } from "@/lib/stores"
 import AddWalletAddress from "./add-wallet-address"
 import Details from "./details"
 import Wallet from "./wallet"
-import QrReader from "./qr-reader"
+import QrRecording from './qr-recording'
 
 export default function Content() {
   const [mounted, setMounted] = useState(false)
@@ -23,11 +23,11 @@ export default function Content() {
 
   return (
     <>
-      {!address && <div className='container w-auto m-auto'>
+      {!address && <div className='container w-unset sm:w-auto m-auto'>
         {!isQrReaderOpen && <AddWalletAddress />}
-        {isQrReaderOpen && <QrReader />}
+        {isQrReaderOpen && <QrRecording />}
       </div>}
-      {address && <div className='container w-auto mt-32 mb-20'>
+      {address && <div className='container w-unset sm:w-auto mt-32 mb-20'>
         {!token && <Wallet />}
         {token && <Details />}
       </div>}
